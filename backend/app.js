@@ -9,11 +9,15 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/users', (req, res) => {
+  res.sendFile(path.join(__dirname, 'users.json'));
+});
+
 
 const products = JSON.parse(fs.readFileSync(path.join(__dirname, 'products.json'), 'utf8'));
 const users = JSON.parse(fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8'));
 
-// Función para seleccionar elementos aleatorios de un array
+
 const getRandomElements = (arr, num) => {
     let shuffled = arr.slice(0);
     let i = arr.length;
@@ -29,6 +33,7 @@ const getRandomElements = (arr, num) => {
     
     return shuffled.slice(min);
   };
+
 
 app.post('/recommend', [
     body('user_id').isString().notEmpty().withMessage('User ID is required and should be a string'),
@@ -69,7 +74,7 @@ app.post('/recommend', [
       return macronutrientMatch && glutenFreeMatch;
     });
 
-// Selecciona aleatoriamente 3 productos de los productos recomendados
+
 const randomProducts = getRandomElements(recommendedProducts, 3);
 
 const response = randomProducts.map(product => {
@@ -93,27 +98,6 @@ const response = randomProducts.map(product => {
     };
   });
     
-/* const response = randomProducts.map(product => ({
-  product_name: product.name,
-  reason: `Matches your preferences`
-})); */
-
-
-   /*  console.log('Products after filtering:', recommendedProducts);
-    
-    recommendedProducts = recommendedProducts.slice(0, 3);
-  
-    
-    const response = recommendedProducts.map(product => ({
-      product_name: product.name,
-      reason: `Matches your preferences`
-    }));
-   */
-
-    console.log('Response to be sent:', {
-        user_id,
-        recommended_products: response
-      });
 
     res.json({
         
@@ -121,6 +105,8 @@ const response = randomProducts.map(product => {
       recommended_products: response
     });
   });
+
+
 
 module.exports = app;
 

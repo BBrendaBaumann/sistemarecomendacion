@@ -1,4 +1,4 @@
-/* Estilos generales */
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f7f8fc;
@@ -35,10 +35,6 @@ body {
     background-color: #00945e;
   }
   
-  /* .filter-button:hover {
-    background-color: #45a049;
-  transform: scale(1.05);
-  } */
   
   .product-list {
     display: flex;
