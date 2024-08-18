@@ -1,0 +1,76 @@
+/* Estilos generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f8fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .recommendation-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .filter-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #82c91e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .filter-button.active {
+    background-color: #00945e;
+  }
+  
+  /* .filter-button:hover {
+    background-color: #45a049;
+  transform: scale(1.05);
+  } */
+  
+  .product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .product-card {
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
+  
+  .product-name {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    color: #3c4043;
+    font-weight: 600;
+  }
+  
+  .product-reason {
+    margin: 0;
+    font-size: 1em;
+    color: #666;
+    font-weight: 400;
+  }
+  
